@@ -1,19 +1,85 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Activity 2: jQuery + AJAX request + DOM manipulation</title>
-  </head>
-  <body>
-    <h1>Activity 2: jQuery + AJAX request + DOM manipulation</h1>
-    <p>With JQuery load de data on the sibling file employees.json and build a table showing the data:</p>
-    <div id="table-container"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  </body>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Activity 2: jQuery + AJAX request + DOM manipulation</title>
+</head>
+
+<body>
+  <h1>Activity 2: jQuery + AJAX request + DOM manipulation</h1>
+  <p>With JQuery load de data on the sibling file employees.json and build a table showing the data:</p>
+  <div id="table-container"></div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
+
+  <script>
+    $.ajax({
+      type: "Get",
+      url: "./employees.json",
+      dataType: "json",
+      success: function (data) {
+        crearTabla(data);
+      },
+      error: function (data) {
+        alert('Errooooor');
+      }
+    });
+
+    function crearTabla(employees) {
+      var tableContainer = document.getElementById("table-container");
+
+      var table = document.createElement('table');
+
+      table.classList.add("table");
+      table.classList.add("table-striped");
+
+
+      var eltr = document.createElement('tr');
+
+      var elth = document.createElement('th');
+      elth.innerText = 'id';
+      eltr.appendChild(elth);
+      elth = document.createElement('th');
+      elth.innerText = 'name';
+      eltr.appendChild(elth);
+      elth = document.createElement('th');
+      elth.innerText = 'departament';
+      eltr.appendChild(elth);
+
+      var tableHead = document.createElement('thead');
+      tableHead.appendChild(eltr);
+      table.appendChild(tableHead);
+
+      var eltbody = document.createElement('tbody');
+
+      employees.forEach(element => {
+        eltr = document.createElement('tr');
+        var eltd = document.createElement('td');
+        eltd.innerText = element.id;
+        eltr.appendChild(eltd);
+        eltd = document.createElement('td');
+        eltd.innerText = element.name;
+        eltr.appendChild(eltd);
+        eltd = document.createElement('td');
+        eltd.innerText = element.department;
+        eltr.appendChild(eltd);
+        eltbody.appendChild(eltr);
+      });
+
+      table.appendChild(eltbody);
+      tableContainer.appendChild(table);
+
+
+    }
+  </script>
+</body>
+
 </html>
