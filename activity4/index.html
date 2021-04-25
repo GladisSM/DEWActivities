@@ -1,15 +1,40 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Activity 4: Change the image</title>
-  </head>
-  <body>
-    <h1>Activity 4: Change the image</h1>
-    <p>Change the following image with changed.png only if changed.png exists in the server (you need to add the images)</p>
-    <img src="./default.png" alt="just an image">
-  </body>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Activity 4: Change the image</title>
+</head>
+
+<body>
+  <h1>Activity 4: Change the image</h1>
+  <p>Change the following image with changed.png only if changed.png exists in the server (you need to add the images)
+  </p>
+  <img src="./default.png" alt="just an image">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
+  <script>
+    $.ajax({
+      type: "HEAD",
+      url: "./changed.png",
+      success: function (data) {
+        console.log ("Existe");
+        changeImg();
+      },
+    });
+
+    function changeImg() {
+      var elImg = document.getElementsByTagName("img")[0];
+      console.log (elImg);
+      elImg.src = "./changed.png";
+    }
+
+
+  </script>
+</body>
+
 </html>
