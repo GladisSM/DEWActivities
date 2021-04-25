@@ -1,19 +1,74 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Activity 3: Forms &amp; click event</title>
-  </head>
-  <body>
-    <h1>Activity 3: Forms &amp; click event</h1>
-    <p>Add a form with two fields ("Rows" and "Columns") and a button ("Generate Table"). When the button is clicked it have to:</p>
-      <ol>
-        <li>remove a table#generated if exists </li>
-        <li>Add a table with as many rows and columns both Rows and Columns fields indicate</li>
-        <li>Each table cell must contain a text like: "Row: X, Col: Y"</li>
-      </ol>
-  </body>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Activity 3: Forms &amp; click event</title>
+</head>
+
+<body>
+  <h1>Activity 3: Forms &amp; click event</h1>
+  <p>Add a form with two fields ("Rows" and "Columns") and a button ("Generate Table"). When the button is clicked it
+    have to:</p>
+  <ol>
+    <li>remove a table#generated if exists </li>
+    <li>Add a table with as many rows and columns both Rows and Columns fields indicate</li>
+    <li>Each table cell must contain a text like: "Row: X, Col: Y"</li>
+  </ol>
+  <div id="formContainer">
+    <form action="">
+      <label for="rows">Rows</label>
+      <input id="rows" type="number" name="rowNumber">
+      <label for="columns">Columns</label>
+      <input id="columns" type="number" name="columnsNumber">
+      <button type="button" id="formButton" onclick="crearTabla()">Generate table</button>
+    </form>
+
+  </div>
+  <div id="createTable"></div>
+
+  <script>
+    function crearTabla() {
+      var rows = document.getElementById("rows").value;
+      var columns = document.getElementById("columns").value;
+      if ((rows <= 0) || (columns <= 0))  {
+        alert("Debe informar número de filas y columnas");
+        return;
+      }
+      var tableContainer = document.getElementById("createTable");
+      var table = document.createElement("table");
+      var eltr = document.createElement('tr');
+      var elth;
+      for (let index = 1; index <= columns; index++) {
+        elth = document.createElement('th');
+        elth.innerText = "Columna " + index;
+        eltr.appendChild(elth);
+      }
+      var tableHead = document.createElement('thead');
+      tableHead.appendChild(eltr);
+      table.appendChild(tableHead);
+
+      var eltbody = document.createElement('tbody');
+      var eltd;
+      for (let i = 1; i <= rows; i++) {
+        eltr = document.createElement('tr');
+        for (let j = 1; j <= columns; j++) {
+          eltd = document.createElement('td');
+          eltd.innerText = "Fila " + i + " Columna " + j;
+          eltr.appendChild(eltd);
+        }
+        eltbody.appendChild(eltr);
+      }
+
+      table.appendChild(eltbody);
+      tableContainer.innerHTML = '';
+      tableContainer.appendChild(table);
+    }
+
+  </script>
+</body>
+
 </html>
