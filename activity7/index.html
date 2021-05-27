@@ -1,46 +1,124 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Activity 7: the audio tag + events</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-      .controls div{
-        float: left;
-        margin: 10px;
-        border: 3px solid #000;
-        font-size: 2em;
-        text-align: center;
-        width: 50px;
-        border-radius: 5px;
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Activity 7: the audio tag + events</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .controls div {
+      float: left;
+      margin: 10px;
+      border: 3px solid #000;
+      font-size: 2em;
+      text-align: center;
+      width: 50px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Activity 7: the audio tag + events</h1>
+  <p>This is a music player with a playlist</p>
+  <ul>
+    <li>Add a play icon to the item in the playlist that is currently playing.</li>
+    <li>Add controls to <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento/audio">audio tag</a>:
+      play/pause, go back, go forward.</li>
+    <li>When 1 audio ends the following one must start playing automatically</li>
+  </ul>
+
+  <ol>
+    <li id="music1.mp3">music1.mp3</li>
+    <li id="music2.mp3">music2.mp3</li>
+    <li id="music3.mp3">music3.mp3</li>
+  </ol>
+  <audio controls>
+    <source src="" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+  <div class="controls">
+    <div class="play"><i id="idbotonplay" class="fa fa-play"></i></div>
+    <div class="backward"><i class="fa fa-step-backward"></i></div>
+    <div class="fordward"><i class="fa fa-step-forward"></i></div>
+  </div>
+
+  <script>
+    const arrayAudio = ["music1.mp3", "music2.mp3", "music3.mp3"];
+
+    function nextaudio() {
+      var actual = document.getElementsByTagName("audio")[0].src;
+      actual = actual.substring(actual.lastIndexOf("/") + 1);
+      console.log(actual);
+      const isLargeNumber = (element) => element == actual;
+      var indiceActual = arrayAudio.findIndex(isLargeNumber);
+
+      if ((indiceActual + 1) == arrayAudio.length) {
+        setAudioSrc(arrayAudio[0]);
+      } else {
+        setAudioSrc(arrayAudio[indiceActual + 1]);
       }
-    </style>
-  </head>
-  <body>
-    <h1>Activity 7: the audio tag + events</h1>
-    <p>This is a music player with a playlist</p>
-    <ul>
-      <li>Add a play icon to the item in the playlist that is currently playing.</li>
-      <li>Add controls to <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento/audio">audio tag</a>: play/pause, go back, go forward.</li>
-      <li>When 1 audio ends the following one must estart playing automatically</li>
-    </ul>
+      document.getElementsByTagName("audio")[0].play();
+    }
 
-    <ol>
-      <li>music1.mp3</li>
-      <li>music2.mp3</li>
-      <li>music3.mp3</li>
-    </ol>
-    <audio>
-     <source src="" type="audio/mpeg">
-     Your browser does not support the audio tag.
-    </audio>
-    <div class="controls">
-      <div class="play"><i class="fa fa-play"></i></div>
-      <div class="backward"><i class="fa fa-step-backward"></i></div>
-      <div class="fordward"><i class="fa fa-step-forward"></i></div>
-    </div>
-  </body>
+    function prevaudio() {
+      var actual = document.getElementsByTagName("audio")[0].src;
+      actual = actual.substring(actual.lastIndexOf("/") + 1);
+      console.log(actual);
+      const isLargeNumber = (element) => element == actual;
+      var indiceActual = arrayAudio.findIndex(isLargeNumber);
+
+      if ((indiceActual) == 0) {
+        setAudioSrc(arrayAudio[arrayAudio.length - 1]);
+      } else {
+        setAudioSrc(arrayAudio[indiceActual - 1]);
+      }
+      document.getElementsByTagName("audio")[0].play();
+
+    }
+
+    function setAudioSrc(fileaudio) {
+      var audio = document.getElementsByTagName("audio")[0];
+      audio.setAttribute("src", fileaudio);
+      marcarItem(fileaudio);
+    }
+
+    function marcarItem(fileaudio) {
+      arrayAudio.forEach(element => {
+        var itemList = document.getElementById(element);
+        if (itemList.id == fileaudio) {
+          itemList.innerHTML += "&#9658;"
+        } else {
+          itemList.innerHTML = element;
+        }
+      });
+    }
+
+    function playstatus (){
+     var audio = document.getElementsByTagName("audio")[0];
+     console.log (audio.paused);
+      if (audio.paused) {
+         document.getElementsByTagName("audio")[0].play();
+      } else {
+         document.getElementsByTagName("audio")[0].pause();
+      }
+      document.getElementById("idbotonplay").classList.toggle("fa-play");
+      document.getElementById("idbotonplay").classList.toggle("fa-pause");
+    }
+    setAudioSrc("music1.mp3");
+
+    var botonplay = document.getElementsByClassName("play")[0];
+    var botonfordward = document.getElementsByClassName("fordward")[0];
+    var botonback = document.getElementsByClassName("backward")[0];
+
+    botonplay.addEventListener("click", () => playstatus());
+    botonfordward.addEventListener("click", () => nextaudio());
+    botonback.addEventListener("click", () => prevaudio());
+    document.getElementsByTagName("audio")[0].addEventListener("ended", () => nextaudio());
+  </script>
+</body> 
+
 </html>
