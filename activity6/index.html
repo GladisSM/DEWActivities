@@ -1,16 +1,92 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Activity 6: Modularize</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
-    <h1>Activity 6: Modularize</h1>
-    <p>Repeating code is not a good approach. Now we will take the static site we made in DOR and make that every common area stay in a different document so it can be loaded from the page.</p>
-    <p>Take menu, foot, etc. and place it in different files. in the pages add the necesary code lo load this areas in the html.</p>
-  </body>
+<head>
+  <title>Página web del mundo cetogénico o dieta keto</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="misestilos.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <script src="loadjQuery.js"></script>
+</head>
+
+
+<body>
+<!-- Para trabajarlo de dos maneras distintas: Opcion 1: Aqui he empleado un único fichero js para cargar cabecera y pie usando una función: pasando el fichero y el identificador por parámetro-->
+  <header id="headerjquery">
+    <script>
+      cargaFichero("#headerjquery", "header.html");
+    </script>
+  </header>
+  <main>
+    <div class="text-center">
+      <h2>Encontrarás recetas cetogénicas (keto), low-carb e información sobre ayuno intermitente</h2>
+    </div>
+
+    <div id="flexcontainerppal">
+      <a name="Ventajas"></a>
+      <div class="colorppal espaciadotexto">
+        <h4>¿Que es dieta cetogénica o 'keto'?</h4>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum
+      </div>
+      <div class="colorcontraste1 espaciadotexto">
+        <h4>¿Que es low-carb?</h4>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum
+      </div>
+      <div class="colorcontraste2 espaciadotexto">
+        <h4>¿Que es ayuno intermitente?</h4>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum
+      </div>
+    </div>
+    <div id="flexcontainersecundario">
+      <div class="colorppal espaciadotexto">
+        <p>Tortilla</p>
+        <img src="Galeria/tortilla.jpg" alt="Tortilla de huevo amarilla con perejil" width="240" height="160" />
+        <p><small>tiempo: 2 minutos</small></p>
+      </div>
+      <div class="colorcontraste1 espaciadotexto">
+        <p>Gofre</p>
+        <img src="Galeria/waffle-2144006_1280.jpg" alt="Gofre con frutos rojos" width="240" height="160" />
+        <p><small>tiempo: 7 minutos</small></p>
+      </div>
+      <div class="colorcontraste2 espaciadotexto">
+        <p>Café</p>
+        <img src="Galeria/coffee-2714970_1280.jpg" alt="Taza de café" width="240" height="160" />
+        <p><small>tiempo: 3 minutos</small></p>
+      </div>
+    </div>
+  </main>
+  <footer id="footerjquery">
+    <script>
+      cargaFichero("#footerjquery", "footer.html");
+    </script>
+  </footer>
+
+</body>
+
 </html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Página web del mundo cetogénico o dieta keto</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="misestilos.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <script src="headerloaderjQuery.js"></script>
+    <script src="footerloaderjQuery.js"></script>
+</head>
+
+<body>
+  
+<!-- Para trabajarlo de dos maneras distintas: Opcion 2: Aqui he empleado dos ficheros js para cargar el header y el footer-->
+  <header id="headerjquery">
+  </header>
+
+  <main>
+    <div class="text-center">
+    <h2 >Formulario de Contacto</h2>
+    <p>Si quieres más información sobre lo que hacemos, o si solo quieres decir hola o preguntarnos algo…</p>
+    <p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+      </svg>
+    <a href="mailto:gladis.suarez@outlook.es" >gladis.suarez@outlook.es</a>
+  </p>
+  <div class="formulario">
+
+    <form class="needs-validation" novalidate>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom01">Nombre</label>
+          <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" value="Nombre" required>
+          <div class="valid-feedback">
+            Bien hecho!
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom02">Apellidos</label>
+          <input type="text" class="form-control" id="validationCustom02" placeholder="Apellidos" value="Apellidos" required>
+          <div class="valid-feedback">
+            Bien hecho!
+          </div>
+        </div>
+        <div class="form-group col-md-4 mb-3">
+          <label for="exampleInputEmail1">Email o correo electrónico</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Rellene e-mail o correo electrónico">
+          <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom03">Municipio</label>
+          <input type="text" class="form-control" id="validationCustom03" placeholder="Municipio" required>
+          <div class="invalid-feedback">
+            Por favor, indique un municipio correcto.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationCustom04">Provincia</label>
+          <input type="text" class="form-control" id="validationCustom04" placeholder="Provincia" required>
+          <div class="invalid-feedback">
+            Por favor, indique una provincia correcto.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationCustom05">Código Postal</label>
+          <input type="text" class="form-control" id="validationCustom05" placeholder="Código Postal" required>
+          <div class="invalid-feedback">
+            Por favor, indique un código postal correcto.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Comenta lo que quieras</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+          <label class="form-check-label" for="invalidCheck">
+            Acepto los términos y condiciones.
+          </label>
+          <div class="invalid-feedback">
+            Debe aceptar los términos y condiciones para poder enviar.
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Enviar formulario de consulta</button>
+    </form>
+  </div>
+  </main>
+  <footer id="footerjquery">
+  </footer>
+
+</body>
+
+</html>

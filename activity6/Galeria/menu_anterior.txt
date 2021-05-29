@@ -1,0 +1,27 @@
+        <nav class="navbar navbar-expand-lg navbar-light .bg-info">
+            <a class="navbar-brand" href="#inicio"><img src="Galeria/egg-157224_1280.png" alt="Es una imagen de un huevo de gallina" width="30" height="40"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ventaja">Ventajas</a>
+                    </li>
+                    <a class="nav-item dropdown"></a>
+                        <a class="nav-link dropdown-toggle" href="#recetas" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Recetas </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#recetaslowcarb">-	Recetas cetogénicas (keto)</a>
+                            <a class="dropdown-item" href="#tips">-	Tips de alimentos low-carb</a>
+                            <a class="dropdown-item" href="#evidencias">- Evidencias científicas</a>
+                            <div class="dropdown-divider"></div> 
+                            <a class="dropdown-item" href="#recetas">- Instagramers</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>

@@ -1,0 +1,15 @@
+tema: recetas keto
+voz: como tratar las criticas a este tipo de alimentación: tratando con referencias médicas/estudios probados
+
+cuidado con las imagenes: tener ajustada la imagen: png / jpg / gif
+
+banco de imagenes: creative common
+sonido: mp3 / ogg
+browser market share --> estadistica navegadores: gana crome
+videos: bitrate --> ratio de compresión /resolucion video
+
+https://inkscape.org/es/
+
+gimp portable
+
+objet-fit --> propiedad para ajustar la imagen
